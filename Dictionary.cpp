@@ -71,16 +71,14 @@ void prog()
                else
                {
                 printf("%s : ",t->word);
-                cout<<t->meaning;
+                cout<<t->meaning<<endl<<endl();
                }
               }
-              getch();
               break;
            case 3:if(temp==NULL)
                printf("Dictionary is empty...");
               else
                displayall(temp);
-              getch();
               break;
            case 4:filefromtree(temp);
               exit(1);
@@ -161,11 +159,8 @@ void addword(node *tree,char word[],char meaning[])
      node *p,*q;
      p=q=(tree);
      if(p->left==NULL)
-        cout<<"NULL";
-
-     while(p!=NULL && strcmp(word,p->word)!=0)
+ while(p!=NULL && strcmp(word,p->word)!=0)
      {
-         cout<<"ADDING WORD:";
         q=p;
       if(strcmp(word,p->word)<0)
       {
@@ -235,7 +230,7 @@ void displayall(node *tree)
  if(tree!=NULL)
  {
   displayall(tree->left);
-  printf("%s : %s",tree->word,tree->meaning);
+  cout<<tree->word<<":"<<tree->meaning<<endl;
   displayall(tree->right);
  }
 }
