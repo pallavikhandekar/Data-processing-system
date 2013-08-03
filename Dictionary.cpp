@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+
 #include<dos.h>
 #define LEFT  1
 #define RIGHT 2
@@ -36,11 +37,9 @@ void prog()
     if(temp==NULL)
      {
       cout<<"File does not exist or dictionary is empty..."<<endl;
-      //getch();
      }
     do
     {
-       // system("CLS");
         showmenu();
         cout<<"Enter your choice"<<endl;
         cin>>menuchoice;
@@ -53,7 +52,6 @@ void prog()
               if(temp==NULL)
               {
                 temp=maketree(word,meaning);
-               cout<<"WORD:"<<temp->word;
               }
               else
                addword(temp,word,meaning);
@@ -90,7 +88,6 @@ void prog()
            case 5:break;
            default:
               cout << "Not a Valid Choice. \nChoose again.\n";
-              menuchoice = 4;
               break;
           }
           //cout<<"case 1 exit";
@@ -158,29 +155,40 @@ void seperateword(char str[],char w[],char m[])
      }
      m[j]=NULL;
 }
+
 void addword(node *tree,char word[],char meaning[])
-    {
+{
      node *p,*q;
-     p=q=tree;
-     while(strcmp(word,p->word)!=0 && p!=NULL)
+     p=q=(tree);
+     if(p->left==NULL)
+        cout<<"NULL";
+
+     while(p!=NULL && strcmp(word,p->word)!=0)
      {
-      q=p;
+         cout<<"ADDING WORD:";
+        q=p;
       if(strcmp(word,p->word)<0)
-       p=p->left;
+      {
+                p=p->left;
+      }
       else
-       p=p->right;
+      {
+                p=p->right;
+      }
      }
      if(strcmp(word,q->word)==0)
      {
-      printf("This word already exists...");
+      cout<<"This word already exists..."<<endl;
       //delay(1000);
      }
      else if(strcmp(word,q->word)<0)
       q->left=maketree(word,meaning);
      else
       q->right=maketree(word,meaning);
+
     }
-    node* bsearch(node *tree,char word[])
+
+node* bsearch(node *tree,char word[])
     {
      node *q;
      q=tree;
