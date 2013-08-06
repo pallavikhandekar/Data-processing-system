@@ -4,8 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#include<dos.h>
+#include <algorithm>
 #define LEFT  1
 #define RIGHT 2
 
@@ -22,6 +21,8 @@ node* treefromfile();
 void filefromtree(node*);
 void addword(node*,char[],char[]);
 void seperateword(char[],char[],char[]);
+void stringToUpper(string);
+void findCharacterSeq(node* ,string );
 void displayall(node*);
 node* bsearch(node*,char[]);
 void showmenu();
@@ -31,6 +32,7 @@ void prog()
 {
     //system("CLS");
     char word[20],meaning[100];
+    string sequence;
     int menuchoice=0;
     node *temp;
     temp=treefromfile();
@@ -71,7 +73,7 @@ void prog()
                else
                {
                 printf("%s : ",t->word);
-                cout<<t->meaning<<endl<<endl();
+                cout<<t->meaning<<endl<<endl;
                }
               }
               break;
@@ -80,25 +82,31 @@ void prog()
               else
                displayall(temp);
               break;
-           case 4:filefromtree(temp);
+           case 4:
+               cout<<"Please enter the sequence to be searched: ";
+               cin>>sequence;
+               findCharacterSeq(temp,sequence);
+               break;
+           case 5:filefromtree(temp);
               exit(1);
               break;
-           case 5:break;
+           case 6:break;
            default:
               cout << "Not a Valid Choice. \nChoose again.\n";
               break;
           }
           //cout<<"case 1 exit";
-    }while(menuchoice!=5);
+    }while(menuchoice!=6);
 }
 void showmenu()
 {
-     cout<<"COMPUTER DICTIONARY"<<endl;
+     cout<<endl<<"**************BST DICTIONARY****************"<<endl;
      cout<<"[1].	Add a word."<<endl;
      cout<<"[2].	Find meaning."<<endl;
      cout<<"[3].	Display all."<<endl;
-     cout<<"[4].    Save and Close"<<endl;
-     cout<<"[5].    Exit"<<endl;
+     cout<<"[4].    Display words containing character sequence"<<endl;
+     cout<<"[5].    Save and Close"<<endl;
+     cout<<"[6].    Exit"<<endl;
 }
 node* treefromfile()
 {
@@ -235,6 +243,38 @@ void displayall(node *tree)
  }
 }
 
+/*
+Finds the sequence of characters in Disctionary
+PRE: Root (tree) and seqeunce of characters is passed.
+POST: Prints the words which contains that sequence.
+*/
+void findCharacterSeq(node* tree,string sequence)
+{
+   if(tree!=NULL)
+     {
+      findCharacterSeq(tree->left,sequence);
+      string word = tree->word;
+      transform(word.begin(), word.end(), word.begin(), (int(*)(int)) toupper);
+      transform(sequence.begin(), sequence.end(), sequence.begin(), (int(*)(int)) toupper);
+      std::size_t found = word.find(sequence);
+      if(found!=std::string::npos)
+        cout<<tree->word<<":"<<tree->meaning<<endl;
+      findCharacterSeq(tree->right,sequence);
+     }
+}
+
+/*
+Converts String to UpperCase
+Pre: String to be converted to upper case
+PosT: string is converted to uppercase
+*/
+void stringToUpper(string &str)
+{
+   for(unsigned int l = 0; l < str.length(); l++)
+  {
+    str[l] = toupper(str[l]);
+  }
+}
 void intro()
 {
     int i;
@@ -253,6 +293,8 @@ void intro()
     cout<<"DICTIONARY LOADING COMPLETED";
     system("CLS");
 }
+
+
 int main()
 {
     system("CLS");
