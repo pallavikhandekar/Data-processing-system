@@ -49,9 +49,9 @@ void prog()
           {
            case '1':cout<<"Enter word : ";
               cin>>word;
+              cin.ignore();
               cout<<"Enter meaning : ";
-              cin>>meaning;
-              //cin.getline(meaning,100);
+              cin.getline(meaning,99);
               if(temp==NULL)
               {
                 temp=maketree(word,meaning);
