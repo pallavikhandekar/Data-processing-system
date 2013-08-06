@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <algorithm>
+#include <fstream>
 #define LEFT  1
 #define RIGHT 2
 
@@ -104,8 +105,8 @@ void prog()
 void showmenu()
 {
      cout<<endl<<"**************BST DICTIONARY****************"<<endl;
-     cout<<"[1]. Add a word."<<endl;
-     cout<<"[2].	Find meaning."<<endl;
+     cout<<"[1].    Add a word."<<endl;
+     cout<<"[2]. Find meaning."<<endl;
      cout<<"[3].	Display all."<<endl;
      cout<<"[4].    Display words containing character sequence"<<endl;
      cout<<"[5].    Save and Close"<<endl;
@@ -114,31 +115,33 @@ void showmenu()
 node* treefromfile()
 {
      node *ptree=NULL;
-     char word[20],meaning[100],str[120],*i;
+     char word[20],meaning[100];
+     string strWord, strmeaning;
      int flags=0;
-     file_ptr=fopen("dictionary.txt","r");
-     if(file_ptr==NULL)
+    ifstream file("dictionary.txt");
+     if(file==NULL)
       ptree=NULL;
      else
-     {
-
-      while(!feof(file_ptr))
       {
-        i=fgets(str,120,file_ptr);
-        if(i==NULL)
-        break;
-        seperateword(str,word,meaning);
-        if(flags==0)
-        {
-         ptree=maketree(word,meaning);
-         flags=1;
-        }
-        else
-         addword(ptree,word,meaning);
+       string str;
+       while(getline(file,str))
+       {
+         int pos = str.find(':');
+         strWord = string(str.begin(),str.begin()+pos);
+         strmeaning =  string(str.begin()+pos+1,str.end());
+         strcpy(word,strWord.c_str());
+        strcpy(meaning,strmeaning.c_str());
+
+         if(flags==0)
+          {
+            ptree=maketree(word,meaning);
+           flags=1;
+         }
+         else
+          addword(ptree,word,meaning);
+       }
       }
 
-        fclose(file_ptr);
-     }
      return ptree;
 }
 
@@ -245,7 +248,7 @@ void travandwrite(node *tree)
 {
  if(tree!=NULL)
  {
-  fprintf(file_ptr,"%s %s \n",tree->word,tree->meaning);
+  fprintf(file_ptr,"%s:%s\n",tree->word,tree->meaning);
   travandwrite(tree->left);
   travandwrite(tree->right);
  }
