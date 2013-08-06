@@ -33,7 +33,7 @@ void prog()
     //system("CLS");
     char word[20],meaning[100];
     string sequence;
-    int menuchoice=0;
+    char menuchoice;
     node *temp;
     temp=treefromfile();
     if(temp==NULL)
@@ -47,10 +47,11 @@ void prog()
         cin>>menuchoice;
         switch(menuchoice)
           {
-           case 1:cout<<"Enter word : ";
+           case '1':cout<<"Enter word : ";
               cin>>word;
               cout<<"Enter meaning : ";
               cin>>meaning;
+              cin.getline(meaning,100);
               if(temp==NULL)
               {
                 temp=maketree(word,meaning);
@@ -59,7 +60,7 @@ void prog()
                addword(temp,word,meaning);
 
               break;
-           case 2:if(temp==NULL)
+           case '2':if(temp==NULL)
                cout<<"The dictionary is empty...";
               else
               {
@@ -68,29 +69,31 @@ void prog()
                cin>>word;
                node *t;
                t=bsearch(temp,word);
+              // t=bsearch(temp,meaning);
                if(t==NULL)
                 printf("Word not found...");
                else
                {
                 printf("%s : ",t->word);
+                //printf("%s : ",t->meaning);
                 cout<<t->meaning<<endl<<endl;
                }
               }
               break;
-           case 3:if(temp==NULL)
+           case '3':if(temp==NULL)
                printf("Dictionary is empty...");
               else
                displayall(temp);
               break;
-           case 4:
+           case '4':
                cout<<"Please enter the sequence to be searched: ";
                cin>>sequence;
                findCharacterSeq(temp,sequence);
                break;
-           case 5:filefromtree(temp);
+           case '5':filefromtree(temp);
               exit(1);
               break;
-           case 6:break;
+           case '6':break;
            default:
               cout << "Not a Valid Choice. \nChoose again.\n";
               break;
@@ -101,7 +104,7 @@ void prog()
 void showmenu()
 {
      cout<<endl<<"**************BST DICTIONARY****************"<<endl;
-     cout<<"[1].	Add a word."<<endl;
+     cout<<"[1]. Add a word."<<endl;
      cout<<"[2].	Find meaning."<<endl;
      cout<<"[3].	Display all."<<endl;
      cout<<"[4].    Display words containing character sequence"<<endl;
@@ -242,7 +245,7 @@ void travandwrite(node *tree)
 {
  if(tree!=NULL)
  {
-  fprintf(file_ptr,"%s %s",tree->word,tree->meaning);
+  fprintf(file_ptr,"%s %s \n",tree->word,tree->meaning);
   travandwrite(tree->left);
   travandwrite(tree->right);
  }
@@ -298,7 +301,7 @@ void intro()
     for(i=0;i<50;i++)
     {
     // gotoxy(15+i,21);
-     cout<<"þþþ";
+     cout<<"Ã¾Ã¾Ã¾";
     // gotoxy(20,22);
      cout<<2*i<<"% completed";
     // delay(150);
@@ -315,5 +318,3 @@ int main()
    // intro();
     prog();
 }
-
-
