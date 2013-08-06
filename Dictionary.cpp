@@ -93,7 +93,7 @@ void prog()
            case '5':filefromtree(temp);
               exit(1);
               break;
-           case '6':break;
+           case '6':exit(1);
            default:
               cout << "Not a Valid Choice. \nChoose again.\n";
               break;
