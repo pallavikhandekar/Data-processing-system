@@ -193,21 +193,35 @@ void addword(node *tree,char word[],char meaning[])
 
 node* bsearch(node *tree,char word[])
     {
+     bool wordFound = false;
      node *q;
      q=tree;
      while(q!=NULL)
      {
       //p=q;
       if(strcmp(word,q->word)<0)
-       q=q->left;
+       {
+           //cout<<"Traversing Left";
+           q=q->left;
+       }
       else if(strcmp(word,q->word)>0)
-       q=q->right;
-      if(strcmp(word,q->word)==0)
-       break;
+       {
+           //cout<<"Traversing Right";
+           q=q->right;
+       }
+       //cout<<"Traversed :"<<q->word;
+      if(q!=NULL && strcmp(word,q->word)==0)
+      {
+          wordFound = true;
+          break;
+      }
+
      }
      return q;
-    }
-    void filefromtree(node *tree)
+}
+
+
+void filefromtree(node *tree)
     {
      void travandwrite(node*);
      file_ptr=fopen("dictionary.txt","w");
