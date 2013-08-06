@@ -51,7 +51,7 @@ void prog()
               cin>>word;
               cout<<"Enter meaning : ";
               cin>>meaning;
-              cin.getline(meaning,100);
+              //cin.getline(meaning,100);
               if(temp==NULL)
               {
                 temp=maketree(word,meaning);
