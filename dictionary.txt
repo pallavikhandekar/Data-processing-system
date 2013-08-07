@@ -1,1 +1,3 @@
-Apple a
+Apple:is a red fruit
+Orange:is an orange fruit
+Dog:is an animal
