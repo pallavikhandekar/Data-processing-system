@@ -49,6 +49,7 @@ void mainMenu()
     tempTree=treeFromFile();
     time_t now;
     struct tm *current;
+    int random=0;
 
     if(tempTree==NULL)
      {
@@ -112,8 +113,10 @@ void mainMenu()
               break;
            case '7':now = time(0);
                     current = localtime(&now);
+                    srand(current->tm_mday);
+                    random = rand()%(tempTree->countNodes-1)+1;
                     cout<<"************************Todays Flash Card*************************"<<endl;
-                    flashCard(tempTree,current->tm_mday,1);
+                    flashCard(tempTree,random,1);
                     break;
            case '8':exit(1);
            default:
@@ -138,7 +141,8 @@ void showMenu()
      cout<<"[4].    Display words containing character sequence"<<endl;
      cout<<"[5].    Edit Meaning"<<endl;
      cout<<"[6].    Save and Close"<<endl;
-     cout<<"[7].    Exit"<<endl;
+     cout<<"[7].    Flash card for today"<<endl;
+     cout<<"[8].    Exit"<<endl;
 }
 
 /*
