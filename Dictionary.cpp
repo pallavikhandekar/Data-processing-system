@@ -6,13 +6,16 @@
 #include <unistd.h>
 #include <algorithm>
 #include <fstream>
+#include <time.h>
 #define LEFT  1
 #define RIGHT 2
+#define NUMBER_OF_WORDS 10
 
 using namespace std;
 struct node
 {
  char word[20],meaning[100];
+ int countNodes;
  node *left,*right;
 };
 
@@ -28,6 +31,8 @@ void editMeaning(node* ,char[] );
 node* bSearch(node*,char[]);
 void showMenu();
 FILE *dictionaryFile;
+void flashCard(node*,int ,int);
+
 
 
 /*
@@ -42,6 +47,9 @@ void mainMenu()
     char menuChoice;
     node *tempTree;
     tempTree=treeFromFile();
+    time_t now;
+    struct tm *current;
+
     if(tempTree==NULL)
      {
       cout<<"File does not exist or dictionary is empty..."<<endl;
@@ -87,6 +95,7 @@ void mainMenu()
                printf("Dictionary is empty...");
               else
                displayAll(tempTree);
+               cout<<endl<<"TOTAL WORDS:"<<tempTree->countNodes<<endl;
               break;
            case '4':
                cout<<"Please enter the sequence to be searched: ";
@@ -101,12 +110,17 @@ void mainMenu()
            case '6':fileFromTree(tempTree);
               exit(1);
               break;
-           case '7':exit(1);
+           case '7':now = time(0);
+                    current = localtime(&now);
+                    cout<<"************************Todays Flash Card*************************"<<endl;
+                    flashCard(tempTree,current->tm_mday,1);
+                    break;
+           case '8':exit(1);
            default:
               cout << "Not a Valid Choice. \nChoose again.\n";
               break;
           }
-    }while(menuChoice!=7);
+    }while(menuChoice!=8);
 }
 
 
@@ -178,6 +192,7 @@ node* makeTree(char w[],char m[])
      strcpy(p->meaning,m);
      p->left=NULL;
      p->right=NULL;
+     p->countNodes=1;
      return p;
 }
 /*
@@ -211,6 +226,7 @@ void addWord(node *tree,char word[],char meaning[])
      else
       q->right=makeTree(word,meaning);
 
+    tree->countNodes =tree->countNodes+1;
     }
 /*
 Searches the tree for a particular word
@@ -352,6 +368,27 @@ void editMeaning(node* tree,char word[])
                     strcpy(t->meaning,newMeaning.c_str());
                }
       }
+}
+
+/*
+Generates Flash card of the today
+PRE: Random number is: Today, tree is root of BST
+POST: 10 words are printed for today
+*/
+void flashCard(node* tree,int random,int numberOfWordsPrinted)
+{
+    if(tree!=NULL)
+     {
+      flashCard(tree->left,random,numberOfWordsPrinted);
+      if(numberOfWordsPrinted <= NUMBER_OF_WORDS && random % 10 == 0)
+      {
+       cout<<tree->word<<":"<<tree->meaning<<endl;
+       numberOfWordsPrinted = numberOfWordsPrinted+1;
+      }
+      random = random+1;
+      flashCard(tree->right,random,numberOfWordsPrinted);
+     }
+
 }
 int main()
 {

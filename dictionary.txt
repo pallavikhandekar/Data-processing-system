@@ -1,3 +1,207 @@
-Apple:is a red fruit
-Orange:is an orange fruit
-Dog:is an animal
+abase:lower; degrade; humiliate; make humble; make (oneself) lose self-respect
+abash:embarrass
+abate:subside or moderate
+abbreviate:shorten
+abdicate:renounce; give up (position, right, or responsibility)
+aberrant:abnormal or deviant
+aberration:deviation from the normal; mental disorder
+abet:assist usually in doing something wrong; encourage
+abeyance:suspended action
+abhor:detest; hate
+abject:(of a condition) wretched; as low as possible; lacking pride; very humble; 
+abjure:renounce upon oath
+ablution:washing
+abnegation:renunciation; self-sacrifice; self-abnegation
+abolish:cancel; put an end to
+abominate:loathe; hate
+abominable:detestable; extremely unpleasant
+aboriginal:being the first of its kind in a region; primitive; 
+abortive:unsuccessful; fruitless
+abrasive:rubbing away; tending to grind down
+abridge:condense or shorten
+abrogate:abolish
+abscission:cutting off; separation
+abscond:depart secretly and hide
+absolute:complete; totally unlimited; having complete power; certain; not relative; 
+absolve:pardon (an offense)
+abstain:refrain; withhold from participation; intentionally not use one's vote
+abstemious:sparing in eating and drinking; temperate
+abstinence:restraint from pleasant things, esp. eating or drinking;
+abstract:theoretical; not concrete; nonrepresentational
+abstruse:obscure; profound; difficult to understand
+abusive:coarsely insulting; physically harmful
+abut:border upon; adjoin
+abysmal:bottomless
+abyss:enormous chasm; vast bottomless pit
+academic:related to a school; not practical or directly useful
+accede:agree
+accelerate:move faster
+accessible:easy to approach; obtainable
+accessory:additional object; useful but not essential thing
+acclaim:applaud; praise; greet with great approval; 
+acclimate:adjust to climate or environment; adapt
+acclivity:sharp upslope of a hill; 
+accolade:award of merit; strong praise and approval
+accommodate:oblige or help someone; adjust or bring into harmony; adapt;
+accomplice:partner in crime
+accord:agreement
+accost:approach and speak first to a person
+accoutre:equip;
+accretion:growth or increase in size by gradual addition; growth; increase; 
+accrue:come to one as a gain; accumulate over time; come about by addition;
+acerbity:bitterness of speech and temper;
+acetic:vinegary
+acidulous:slightly sour (in taste or manner); sharp; caustic
+acknowledge:recognize; admit
+acme:peak; pinnacle; highest point
+acoustics:science of sound; quality that makes a room easy or hard to hear in
+acquiesce:assent; agree passively; comply without protest
+acquittal:deliverance from a charge;
+acrid:bitter (to the taste or smell); sharp; bitterly pungent
+acrimonious:stinging; caustic; bitter in words or manner; 
+acrophobia:fear of heights
+actuarial:calculating; pertaining to insurance statistics
+actuary:someone who advises insurance companies
+actuate:motivate; activate; cause to act
+acuity:sharpness (of mind or senses of sight or hearing)
+acumen:mental keenness; sharpness of judgement; ability to judge quickly and well;
+acute:(of the senses) sharp; quickly perceptive; keen; penetrating; brief and severe;
+adage:wise saying; proverb
+proverb:adage; someone or something well known for notoriety; 
+adamant:hard; inflexible
+adapt:make or become suitable for a specific use; alter; modify; adjust;
+addendum:addition; appendix to book; something that is added (as at the end of a speech or book)
+addiction:compulsive habitual need
+addle:make or become confused; muddle; drive crazy; become rotten (egg)
+address:direct a speech to; speak to; deal with or discuss; direct one's efforts or attention to; 
+adept:expert at; very skilled
+adhere:stick fast; be a devoted follower; 
+adherent:supporter; follower
+adjacent:adjoining; neighbouring; close by
+adjunct:something attached to but holding an inferior position
+adjuration:solemn urging; 
+adjutant:staff officer assisting the commander; assistant
+admonish:warn or speak to with gentle disapproval; reprove
+adorn:decorate
+adroit:skillful (in using mind or hand)
+adulation:flattery; admiration that is more than is necessary or deserved
+adulterate:make impure or of poorer quality by adding inferior
+advent:arrival
+adventitious:accidental; casual; happening by chance
+adversary:opponent; enemy
+adverse:going against; opposing; unfavorable; hostile
+adversity:great hardship or affliction; misfortune; calamitous event
+advert:refer
+advocacy:support; active pleading on behalf of someone or something
+advocate:speak in favor of; support (an idea or plan); urge; plead for
+aegis:shield; protection; defense
+aerie(aery,eyrie,eyry):nest of a large bird of prey
+aesthetic:artistic;
+affable:easily approachable; easy to talk to; warmly friendly
+affected:artificial; pretended
+affidavit:written statement made under oath (for use as proof in a court of law)
+affiliation:joining; associating with
+affinity:feeling of kinship; similarity;
+affirmation:positive assertion; confirmation;
+affliction:state of distress; trial; cause of distress or suffering;
+affluence:abundance; wealth
+affront:insult; offense; intentional act of disrespect; 
+agape:openmouthed
+agenda:items of business at a meeting
+agglomeration:collection; heap;
+aggrandize:make greater; increase in power, wealth, rank, or honor; 
+aggregate:sum; total; 
+aghast:filled with great surprise or fear; horrified
+agility:nimbleness; ability to move quickly
+agitate:stir up; disturb
+agnostic:one who is skeptical of the existence or knowability of a god or any ultimate reality
+agog:highly excited; intensely curious
+agrarian:pertaining to land or its cultivation;
+alacrity:cheerful promptness without reluctance
+alchemy:medieval chemistry
+alcove:nook; recess
+alias:an assumed name esp. by a criminal (usually to mislead people); 
+alienate:make unfriendly or hostile; estrange; separate; change the ownership of
+alimentary:supplying nourishment
+alimony:payments made regularly to an ex-spouse after divorce
+allay:calm; pacify
+allege:state without proof
+allegiance:loyalty
+allegory:story, play, or picture in which characters are used as symbols; fable
+alleviate:relieve (pain)
+alliteration:repetition of beginning sound in poetry
+allocate:assign; set apart for a particular purpose
+alloy:mixture as of metals; something added that lowers in value or purity; 
+allude:refer indirectly; 
+allure:entice; attract; tempt
+siren:apparatus for making sounds; womanlike creature
+alluvial:pertaining to soil deposits left by running water
+aloof:apart; not open in one's relationship with other people; reserved; 
+aloft:upward; high up in the air
+altercation:noisy quarrel
+altruistic:unselfishly generous; concerned for others; 
+amalgamate:(of societies or groups) combine; unite in one body
+amalgam:combination of different things;
+amass:collect (gradually, in a very large amount)
+amazon:female warrior
+ambidextrous:capable of using either hand with equal ease
+ambience:environment; atmosphere; 
+ambivalence:the state of having contradictory or conflicting emotional attitudes or opinions
+amble:walking at an easy unhurried pace; 
+ambrosia:food of the gods
+nectar:drink of the gods; sweet liquid collected by bees
+ambulatory:able to walk
+ameliorate:improve
+amenable:obedient; compliant; readily managed; responsive; willing to be led;
+amend:correct; change ; generally for the better
+amenities:convenient features that helps to make life pleasant; social courtesies
+amiable:agreeable; lovable; warmly friendly
+amicable:peaceful; politely friendly; not quarrelsome;
+amiss:wrong; faulty; Ex. something amiss; 
+amity:friendship; peaceful relationship as between nations
+amnesia:loss of memory
+amnesty:pardon (allowed by government to political criminals)
+amoral:nonmoral; having no understanding of right and wrong
+amorous:moved by sexual love; loving; of sexual love; Ex. amorous advances
+amorphous:formless; lacking shape or definition
+amphibian:able to live both on land and in water; 
+amphitheater:oval building with tiers of seats; 
+ample:enough; abundant; spacious; large in size; Ex. ample opportunity/garden; 
+amplify:increase in size or effect; expand; broaden or clarify by expanding; 
+amputate:cut off part of body; prune (a limb)
+amok(amuck):in a state of rage; Ex. run amok
+amulet:charm; talisman; an object worn believed to protect against evil, bad luck
+anachronism:an error involving time in a story; something or someone misplaced in time;
+analgesic:causing insensitivity to pain; 
+analgesia:condition of being unable to feel pain
+analogous:comparable; similar
+analogy:similarity; parallelism; comparing two similar things
+anarchist:person who seeks to overturn the established government;
+anarchy:absence of governing body; state of disorder
+anathema:solemn curse; someone or something regarded as a curse; 
+ancestry:family descent; 
+anchor:secure or fasten firmly; be fixed in place;
+ancillary:serving as an aid or accessory; auxiliary; 
+anecdote:short story of an amusing or interesting event
+anemia:condition in which blood lacks red corpuscles;
+anesthetic:substance that removes sensation with or without loss of consciousness;
+anguish:acute pain; extreme suffering
+angular:sharp-cornered; having an angle; not rounded (body);
+animadversion:critical remark;
+animated:lively; spirited
+animosity:active enmity
+animus:hostile feeling or intent; animosity; hostility; disposition
+annals:records arranged in yearly parts; history
+anneal:reduce brittleness and improve toughness by heating and cooling (metal or glass)
+annex:attach; add to a large thing; take possession of; 
+annihilate:destroy
+annotate:comment; make explanatory notes
+annuity:yearly allowance
+annul:make void
+elope:run away secretly with the intention of getting married
+anodyne:drug that relieves pain or trouble; opiate; 
+anoint:consecrate; put oil on (in a religious ceremony)
+anomalous:abnormal; irregular
+anomaly:irregularity
+anonymity:state of being nameless; 
+antagonism:hostility; active opposition; 
