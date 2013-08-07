@@ -16,52 +16,55 @@ struct node
  node *left,*right;
 };
 
-node *maketree(char[],char[]);
-
-node* treefromfile();
-void filefromtree(node*);
-void addword(node*,char[],char[]);
-void seperateword(char[],char[],char[]);
+node *makeTree(char[],char[]);
+node* treeFromFile();
+void fileFromTree(node*);
+void addWord(node*,char[],char[]);
+void seperateWord(char[],char[],char[]);
 void stringToUpper(string);
-void findCharacterSeq(node* ,string );
-void displayall(node*);
-node* bsearch(node*,char[]);
-void showmenu();
-FILE *file_ptr;
+void searchSequence(node* ,string );
+void displayAll(node*);
+node* bSearch(node*,char[]);
+void showMenu();
+FILE *dictionaryFile;
 
-void prog()
+
+/*
+Presents the user with the main menu and calls the relevant functions correspoding to the users inputs
+PRE: Nothing
+POST: Presents main menu to the users and calls the relevant functions
+*/
+void mainMenu()
 {
-    //system("CLS");
     char word[20],meaning[100];
     string sequence;
-    char menuchoice;
-    node *temp;
-    temp=treefromfile();
-    if(temp==NULL)
+    char menuChoice;
+    node *tempTree;
+    tempTree=treeFromFile();
+    if(tempTree==NULL)
      {
       cout<<"File does not exist or dictionary is empty..."<<endl;
      }
     do
     {
-        showmenu();
+        showMenu();
         cout<<"Enter your choice"<<endl;
-        cin>>menuchoice;
-        switch(menuchoice)
+        cin>>menuChoice;
+        switch(menuChoice)
           {
            case '1':cout<<"Enter word : ";
               cin>>word;
               cin.ignore();
               cout<<"Enter meaning : ";
               cin.getline(meaning,99);
-              if(temp==NULL)
+              if(tempTree==NULL)
               {
-                temp=maketree(word,meaning);
+                tempTree=makeTree(word,meaning);
               }
               else
-               addword(temp,word,meaning);
-
-              break;
-           case '2':if(temp==NULL)
+               addWord(tempTree,word,meaning);
+               break;
+           case '2':if(tempTree==NULL)
                cout<<"The dictionary is empty...";
               else
               {
@@ -69,29 +72,27 @@ void prog()
                cout.flush();
                cin>>word;
                node *t;
-               t=bsearch(temp,word);
-              // t=bsearch(temp,meaning);
+               t=bSearch(tempTree,word);
                if(t==NULL)
                 printf("Word not found...");
                else
                {
                 printf("%s : ",t->word);
-                //printf("%s : ",t->meaning);
                 cout<<t->meaning<<endl<<endl;
                }
               }
               break;
-           case '3':if(temp==NULL)
+           case '3':if(tempTree==NULL)
                printf("Dictionary is empty...");
               else
-               displayall(temp);
+               displayAll(tempTree);
               break;
            case '4':
                cout<<"Please enter the sequence to be searched: ";
                cin>>sequence;
-               findCharacterSeq(temp,sequence);
+               searchSequence(tempTree,sequence);
                break;
-           case '5':filefromtree(temp);
+           case '5':fileFromTree(tempTree);
               exit(1);
               break;
            case '6':exit(1);
@@ -99,20 +100,32 @@ void prog()
               cout << "Not a Valid Choice. \nChoose again.\n";
               break;
           }
-          //cout<<"case 1 exit";
-    }while(menuchoice!=6);
+    }while(menuChoice!=6);
 }
-void showmenu()
+
+
+/*
+Displays Main Menu
+PRE: Nothing
+POST: Main Menu is displayed
+*/
+void showMenu()
 {
      cout<<endl<<"**************BST DICTIONARY****************"<<endl;
      cout<<"[1].    Add a word."<<endl;
      cout<<"[2]. Find meaning."<<endl;
-     cout<<"[3].	Display all."<<endl;
+     cout<<"[3]. Display all."<<endl;
      cout<<"[4].    Display words containing character sequence"<<endl;
      cout<<"[5].    Save and Close"<<endl;
      cout<<"[6].    Exit"<<endl;
 }
-node* treefromfile()
+
+/*
+Retrieves data from the file dictionary.txt and populates the tree
+PRE: Nothing
+POST: The tree is created and populated from the data from the file.
+*/
+node* treeFromFile()
 {
      node *ptree=NULL;
      char word[20],meaning[100];
@@ -134,18 +147,23 @@ node* treefromfile()
 
          if(flags==0)
           {
-            ptree=maketree(word,meaning);
+            ptree=makeTree(word,meaning);
            flags=1;
          }
          else
-          addword(ptree,word,meaning);
+          addWord(ptree,word,meaning);
        }
       }
 
      return ptree;
 }
 
-node* maketree(char w[],char m[])
+/*
+Creates tree
+PRE: The word and the corresponding meaning.
+POST: New node with is created with word and meaning as the data.
+*/
+node* makeTree(char w[],char m[])
     {
      node *p;
      p=new node;
@@ -155,20 +173,12 @@ node* maketree(char w[],char m[])
      p->right=NULL;
      return p;
 }
-void seperateword(char str[],char w[],char m[])
-{
-     int i,j;
-     for(i=0;str[i]!=' ';i++)
-      w[i]=str[i];
-     w[i++]=NULL;	//Append the null and skip the space.
-     for(j=0;str[i]!=' ';i++,j++)
-     {
-        m[j]=str[i];
-     }
-     m[j]=NULL;
-}
-
-void addword(node *tree,char word[],char meaning[])
+/*
+Adds a word and meaning to the existing tree
+PRE: The tree, word and the corresponding meaning.
+POST: The word and meaning is added to the tree if the word is not already existing. 
+*/
+void addWord(node *tree,char word[],char meaning[])
 {
      node *p,*q;
      p=q=(tree);
@@ -188,34 +198,33 @@ void addword(node *tree,char word[],char meaning[])
      if(strcmp(word,q->word)==0)
      {
       cout<<"This word already exists..."<<endl;
-      //delay(1000);
      }
      else if(strcmp(word,q->word)<0)
-      q->left=maketree(word,meaning);
+      q->left=makeTree(word,meaning);
      else
-      q->right=maketree(word,meaning);
+      q->right=makeTree(word,meaning);
 
     }
-
-node* bsearch(node *tree,char word[])
+/*
+Searches the tree for a particular word
+PRE: Tree and the word
+POST: Returns the node if the word is found or null if it doesnt.
+*/
+node* bSearch(node *tree,char word[])
     {
      bool wordFound = false;
      node *q;
      q=tree;
      while(q!=NULL)
      {
-      //p=q;
       if(strcmp(word,q->word)<0)
        {
-           //cout<<"Traversing Left";
            q=q->left;
        }
       else if(strcmp(word,q->word)>0)
        {
-           //cout<<"Traversing Right";
            q=q->right;
        }
-       //cout<<"Traversed :"<<q->word;
       if(q!=NULL && strcmp(word,q->word)==0)
       {
           wordFound = true;
@@ -226,40 +235,54 @@ node* bsearch(node *tree,char word[])
      return q;
 }
 
-
-void filefromtree(node *tree)
+/*
+Creates file with the data from the tree
+PRE: The tree
+POST: New file is created with the data from the tree if the file doesnt exist or the tree data is added to the file if the file is already created.
+*/
+void fileFromTree(node *tree)
     {
-     void travandwrite(node*);
-     file_ptr=fopen("dictionary.txt","w");
-     if(file_ptr==NULL)
+     void travAndWrite(node*);
+     dictionaryFile=fopen("dictionary.txt","w");
+     if(dictionaryFile==NULL)
      {
       printf("Cannot open file for writing data...");
      }
-     else //if(tree==NULL)
+     else 
      {
       if(tree!=NULL)
       {
-       travandwrite(tree);
+       travAndWrite(tree);
       }
-      fclose(file_ptr);  //Close the file anyway.
+      fclose(dictionaryFile);
      }
 }
-void travandwrite(node *tree)
+/*
+Traverses through the tree
+PRE: The tree
+POST: The tree is traversed
+*/
+void travAndWrite(node *tree)
 {
  if(tree!=NULL)
  {
-  fprintf(file_ptr,"%s:%s\n",tree->word,tree->meaning);
-  travandwrite(tree->left);
-  travandwrite(tree->right);
+  fprintf(dictionaryFile,"%s:%s\n",tree->word,tree->meaning);
+  travAndWrite(tree->left);
+  travAndWrite(tree->right);
  }
 }
-void displayall(node *tree)
+/*
+Displays all the data from the tree
+PRE: The tree
+POST: Displays the data from the tree
+*/
+void displayAll(node *tree)
 {
  if(tree!=NULL)
  {
-  displayall(tree->left);
+  displayAll(tree->left);
   cout<<tree->word<<":"<<tree->meaning<<endl;
-  displayall(tree->right);
+  displayAll(tree->right);
  }
 }
 
@@ -268,18 +291,18 @@ Finds the sequence of characters in Disctionary
 PRE: Root (tree) and seqeunce of characters is passed.
 POST: Prints the words which contains that sequence.
 */
-void findCharacterSeq(node* tree,string sequence)
+void searchSequence(node* tree,string sequence)
 {
    if(tree!=NULL)
      {
-      findCharacterSeq(tree->left,sequence);
+      searchSequence(tree->left,sequence);
       string word = tree->word;
       transform(word.begin(), word.end(), word.begin(), (int(*)(int)) toupper);
       transform(sequence.begin(), sequence.end(), sequence.begin(), (int(*)(int)) toupper);
       std::size_t found = word.find(sequence);
       if(found!=std::string::npos)
         cout<<tree->word<<":"<<tree->meaning<<endl;
-      findCharacterSeq(tree->right,sequence);
+      searchSequence(tree->right,sequence);
      }
 }
 
@@ -295,29 +318,8 @@ void stringToUpper(string &str)
     str[l] = toupper(str[l]);
   }
 }
-void intro()
-{
-    int i;
-    system("CLS");
-    //gotoxy(20,20);
-    cout<<"DICTIONARY LOADING";
-    for(i=0;i<50;i++)
-    {
-    // gotoxy(15+i,21);
-     cout<<"þþþ";
-    // gotoxy(20,22);
-     cout<<2*i<<"% completed";
-    // delay(150);
-}
-    //gotoxy(20,20);
-    cout<<"DICTIONARY LOADING COMPLETED";
-    system("CLS");
-}
-
 
 int main()
 {
-    system("CLS");
-   // intro();
-    prog();
+    mainMenu();
 }
